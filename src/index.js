@@ -7,7 +7,7 @@ window.$ = $;
 
 //при перезавантажені сторінки очистити локал сторедж
 window.onload = function(){
-	localStorage.clear();
+	window.localStorage.clear();
 }
 
 //вивести на экран список товарів
@@ -114,7 +114,7 @@ function createCart(){
 	var $cart = $('.cart_products');
 	$cart.empty();//очистити блок
 
-	if(localStorage.length == 0){
+	if(window.localStorage.length == 0){
 		$cart.append($(`<img src="img/empty_cart.png" alt="empty cart">`));
 		return;
 	}
@@ -122,9 +122,9 @@ function createCart(){
 	$cart.append($(`<span class="title ml-4">`).text("Кошик"));
 
 	var all_price = 0;
-	for (var i = 0; i < localStorage.length; i++) {
+	for (var i = 0; i < window.localStorage.length; i++) {
   		var key = localStorage.key(i);
-  		var obj = JSON.parse(localStorage.getItem(key));
+  		var obj = JSON.parse(window.localStorage.getItem(key));
 		$cart.append(_makeCart(obj));
 		all_price += (+obj.price * +obj.number);
     }
@@ -179,11 +179,11 @@ $(document).on('click', '.add_button', function(){
 
 		var num = 1;
 
-	if(localStorage.getItem(id) != null)
-		num = JSON.parse(localStorage.getItem(id)).number + 1;
+	if(window.localStorage.getItem(id) != null)
+		num = JSON.parse(window.localStorage.getItem(id)).number + 1;
 		
 	var product = {id: id, img: img, name: name, price: price, number: num};
-	localStorage.setItem(id, JSON.stringify(product));
+	window.localStorage.setItem(id, JSON.stringify(product));
 });
 
 
@@ -204,10 +204,10 @@ $(document).on('click', '.plus', function(){
 	var $this = $(this);
 	var id = $this.closest('.product').data('product-id');
 	
-	var $obj = JSON.parse(localStorage.getItem(id));
+	var $obj = JSON.parse(window.localStorage.getItem(id));
 	var num = $obj.number + 1;
 	var product = {id: id, img: $obj.img, name: $obj.name, price: $obj.price, number: num};
-	localStorage.setItem(id, JSON.stringify(product));
+	window.localStorage.setItem(id, JSON.stringify(product));
 
 	createCart();
 });
@@ -220,13 +220,13 @@ $(document).on('click', '.minus', function(){
 	var $this = $(this);
 	var id = $this.closest('.product').data('product-id');
 	
-	var $obj = JSON.parse(localStorage.getItem(id));
+	var $obj = JSON.parse(window.localStorage.getItem(id));
 	var num = $obj.number - 1;
 	if(num < 1)
 		return;
 
 	var product = {id: id, img: $obj.img, name: $obj.name, price: $obj.price, number: num};
-	localStorage.setItem(id, JSON.stringify(product));
+	window.localStorage.setItem(id, JSON.stringify(product));
 
 	createCart();
 });
@@ -274,7 +274,8 @@ $(document).on('click', '.post-order ', function(){
           console.log(json);
           if(json.status != "error"){
             alert("Thank you for order");
-            localStorage.clear();
+            document.getElementById("cart_container").style.display = "none";
+            window.localStorage.clear();
           }
           else
             alert(json.status + "You do something wrong");
@@ -321,9 +322,9 @@ function corectForm(name, email, phone){
 //перетворення замовлених товарів у стрічку
 function productsList(){
 	var $list = "";
-	for (var i = 0; i < localStorage.length; i++) {
-  		var key = localStorage.key(i);
-  		var obj = JSON.parse(localStorage.getItem(key));
+	for (var i = 0; i < window.localStorage.length; i++) {
+  		var key = window.localStorage.key(i);
+  		var obj = JSON.parse(window.localStorage.getItem(key));
 		$list +="&products["+ key +"]=" + obj.number;
    	}
 	return $list;

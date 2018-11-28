@@ -3,7 +3,7 @@
 let _makeHtml = ({
 	price
 }) => {
-	let $form = $(`<form class="container odrder">`);
+	let $form = $(`<div class="container odrder">`);
 
 	let $block2 = $(`<div class="row mt-3">`);
 	$block2.append($(`<span class="col-sm-2 col-md-2 font-weight-bold">`).text("Ім'я: "));
