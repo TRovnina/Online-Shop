@@ -5,23 +5,11 @@ import $ from 'jquery';
 window.jQuery = $;
 window.$ = $;
 
-//при завантажені сторінки
-window.onload = function(){
-	allproducts();
-}
-
-
-$(document).on('click', '.all', function(){
-	allproducts();
-});
-
-
-
 
 //вивести на экран список товарів
 let _makeProduct = require('./modules/product');
 
-function allproducts(){
+
 	jQuery.ajax({
 		url: 'https://nit.tron.net.ua/api/product/list',
 		method: 'get',
@@ -34,7 +22,7 @@ function allproducts(){
 			alert("An error occured: " + xhr.status + " " + xhr.statusText);
 		},
 	});
-}
+
 
 
 //вивести на екран список категорій
@@ -58,13 +46,17 @@ let _makeCategory = require('./modules/category-list');
 //відкрити певну категорію
 $(document).on('click', '.category', function(){
 	var $this = $(this);
-	console.log($this);
 	var id = $this.closest('.category').data('category-id');
-	console.log(id);
 	$('div.product-grid').empty();//очистити блок
 
+	var url; 
+	if(id == "all")
+		url = 'https://nit.tron.net.ua/api/product/list';
+	else
+		url = 'https://nit.tron.net.ua/api/product/list/category/' + id;
+
 	jQuery.ajax({
-		url: 'https://nit.tron.net.ua/api/product/list/category/' + id,
+		url: url,
 		method: 'get',
 		dataType: 'json',
 		success: function(json){
