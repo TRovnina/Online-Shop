@@ -6,9 +6,6 @@ window.jQuery = $;
 window.$ = $;
 
 
-window.onload = function(){
-	window.localStorage.clear();
-}
 
 //вивести на экран список товарів
 let _makeProduct = require('./modules/product');
