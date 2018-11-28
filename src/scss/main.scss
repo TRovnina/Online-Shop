@@ -113,8 +113,22 @@ body{
 
 /*картинка продукту на головній сторінці*/
 .product_main .product-image{
-	max-height: 200px;
+	height: 200px;
 }
+
+
+/*назва продукту на головній сторінці*/
+.product_main .product-title{
+	margin-top: 10px;
+	height: 70px;
+}
+
+
+/*блок з ціною продукту на головній сторінці*/
+.product_main .block-price{
+	height: 50px;
+}
+
 
 
 .product_main:hover{
