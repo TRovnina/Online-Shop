@@ -6,7 +6,6 @@ window.jQuery = $;
 window.$ = $;
 
 
-
 //вивести на экран список товарів
 let _makeProduct = require('./modules/product');
 
