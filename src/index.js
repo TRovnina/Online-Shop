@@ -5,44 +5,52 @@ import $ from 'jquery';
 window.jQuery = $;
 window.$ = $;
 
+//при завантажені сторінки
+window.onload = function(){
+	allproducts();
+}
 
-//вивести на экран список товарів
-let _makeProduct = require('./modules/product');
 
-jQuery.ajax({
-	url: 'https://nit.tron.net.ua/api/product/list',
-	method: 'get',
-	dataType: 'json',
-	success: function(json){
-		console.table(json);
-		json.forEach(product => $('.product-grid').append(_makeProduct(product)));
-	},
-	error: function(xhr){
-		alert("An error occured: " + xhr.status + " " + xhr.statusText);
-	},
+$(document).on('click', '.all', function(){
+	allproducts();
 });
 
 
 
 
+//вивести на экран список товарів
+let _makeProduct = require('./modules/product');
+
+function allproducts(){
+	jQuery.ajax({
+		url: 'https://nit.tron.net.ua/api/product/list',
+		method: 'get',
+		dataType: 'json',
+		success: function(json){
+			console.table(json);
+			json.forEach(product => $('.product-grid').append(_makeProduct(product)));
+		},
+		error: function(xhr){
+			alert("An error occured: " + xhr.status + " " + xhr.statusText);
+		},
+	});
+}
 
 
 //вивести на екран список категорій
 let _makeCategory = require('./modules/category-list');
 
-jQuery.ajax({
-	url: 'https://nit.tron.net.ua/api/category/list',
-	method: 'get',
-	dataType: 'json',
-	success: function(json){
-		json.forEach(category => $('.categories_list').append(_makeCategory(category)));
-	},
-	error: function(xhr){
-		alert("An error occured: " + xhr.status + " " + xhr.statusText);
-	},
-});
-
-
+	jQuery.ajax({
+		url: 'https://nit.tron.net.ua/api/category/list',
+		method: 'get',
+		dataType: 'json',
+		success: function(json){
+			json.forEach(category => $('.categories_list').append(_makeCategory(category)));
+		},
+		error: function(xhr){
+			alert("An error occured: " + xhr.status + " " + xhr.statusText);
+		},
+	});
 
 
 
