@@ -175,7 +175,7 @@ body{
 
 /*картинка на кнопці*/
 .button_img{
-	width: 7vh;
+	width: 45px;
 	float: right;
 }
 
@@ -221,6 +221,11 @@ body{
     width: 4em;
 }
 
+/*блок з кнопками додати прибрати товар*/
+.block{
+	width: max-content;
+}
+
 /*видалити товар, збільшити, зменшити*/
 .delete-img, .minus, .plus{
 	height: 40px;
@@ -229,6 +234,7 @@ body{
 /*кількість продукту*/
 .product-number{
 	font-size: 20px;
+	margin: 0 1vw;
 }
 
 /*товар в кошику*/

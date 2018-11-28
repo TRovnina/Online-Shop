@@ -19,9 +19,9 @@ let _makeHtml = ({
 	$block_price.append($(`<span class="product-price">`).text(price + " грн"));
 	$product.append($block_price);
 
-	let $block_number = $(`<div class="col-sm-2 col-md-2 my-auto">`);
+	let $block_number = $(`<div class="my-auto block">`);
 	$block_number.append($(`<img src="img/minus.png" alt="minus" class="minus">`));
-	$block_number.append($(`<span class="product-number mx-3">`).text(number));
+	$block_number.append($(`<span class="product-number">`).text(number));
 	$block_number.append($(`<img src="img/add.png" alt="plus" class="plus">`));
 	$product.append($block_number);
 
