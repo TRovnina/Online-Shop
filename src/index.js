@@ -5,10 +5,13 @@ import $ from 'jquery';
 window.jQuery = $;
 window.$ = $;
 
+//при перезавантажені сторінки очистити локал сторедж
+window.onload = function(){
+	localStorage.clear();
+}
 
 //вивести на экран список товарів
 let _makeProduct = require('./modules/product');
-
 
 	jQuery.ajax({
 		url: 'https://nit.tron.net.ua/api/product/list',
@@ -260,9 +263,8 @@ $(document).on('click', '.post-order ', function(){
 		return;
 	}
 
-	//var data = 'token=8zDfvZgvv_v8s6eq0GlI&name='+ name +'&phone=' + phone +'&email='+ email + productsList();
+	var data = 'token=8zDfvZgvv_v8s6eq0GlI&name='+ name +'&phone=' + phone +'&email='+ email + productsList();
 	//alert(data);
-	var data = 'token=XA8MeFGo_179mvNiYWYA&name=tanya&phone=+380636577870&email=tanya@gmail.com&products[1]=5';
 	$.ajax({
       url: 'https://nit.tron.net.ua/api/order/add',
       method: 'post',
