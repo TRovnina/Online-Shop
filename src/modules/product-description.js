@@ -12,10 +12,10 @@ let _makeHtml = ({
 	$product.append($(`<h2 class="description-title product-title">`).text(name));
 	let $block = $(`<div class="content">`);
 
-	let $block1 = $(`<div class="col-sm-6 col-md-6 text-center bg-white rounded">`);
+	let $block1 = $(`<div class="col-sm-12 col-md-6 text-center bg-white rounded">`);
 	$block1.append($(`<img src="${image_url}" alt="${name}" class="description_img product-image">`));
 
-	let $block2 = $(`<div class="col-sm-5 col-md-5 card p-2">`);
+	let $block2 = $(`<div class="col-sm-12 col-md-5 card p-2">`);
 	if(special_price == null)
 		$block2.append($(`<span class="price mx-auto mt-4">`).text(price + " грн"));
 	else{
