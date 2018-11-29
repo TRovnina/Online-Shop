@@ -110,8 +110,9 @@ function createCart(){
 	var $cart = $('.cart_products');
 	$cart.empty();//очистити блок
 
+	//повідомлення про пустий кошик
 	if(window.localStorage.length == 0){
-		$cart.append($(`<img src="img/empty_cart.png" alt="empty cart">`));
+		$cart.append($(`<img src="img/empty_cart.png" alt="empty cart" class="cart_empty">`));
 		return;
 	}
 
@@ -125,6 +126,7 @@ function createCart(){
 		all_price += (+obj.price * +obj.number);
     }
 
+//кнопка оформлення замовлення та загальна сума
    $cart.append($(`<button class="button order_btn m-4">`).text("Оформити замовлення"));
    var $div = $(`<div class="col-sm-4 col-md-4 all_price">`);
    $div.append($(`<span class="price_all">`).text("Разом до сплати: " + all_price + " грн"));

@@ -6378,10 +6378,7 @@ body {
 /*основний контент сайта*/
 .content {
   display: flex;
-  flex-wrap: wrap; }
-
-/*блок з товарами*/
-.content_main {
+  flex-wrap: wrap;
   padding-bottom: 89px; }
 
 /*список категорій*/
@@ -6517,4 +6514,9 @@ body {
   margin-top: -1.5px;
   border-bottom: 1px solid grey;
   border-top: 1px solid grey; }
+
+/*адаптивність*/
+@media only screen and (max-width: 700px) {
+  .cart_empty {
+    width: 100%; } }
 
