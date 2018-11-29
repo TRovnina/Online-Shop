@@ -6323,7 +6323,7 @@ body {
   font-family: Arial, sans-serif;
   background: #d9d9d9; }
 
-.button, .close_img, .product-image, .category, .cart_img, .delete-img, .minus, .plus {
+.button, .close_img, .product-image, .product-title, .category, .cart_img, .delete-img, .minus, .plus {
   cursor: pointer; }
 
 .button:active, .close_img:active, .cart_img:active, .delete-img:active, .minus:active, .plus:active {
@@ -6378,7 +6378,9 @@ body {
 /*основний контент сайта*/
 .content {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+.content_main {
   padding-bottom: 89px; }
 
 /*список категорій*/
@@ -6403,7 +6405,8 @@ body {
 /*назва продукту на головній сторінці*/
 .product_main .product-title {
   margin-top: 10px;
-  min-height: 70px; }
+  min-height: 70px;
+  font-size: 16px; }
 
 /*блок з ціною продукту на головній сторінці*/
 .product_main .block-price {

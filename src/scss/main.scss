@@ -18,7 +18,7 @@ body{
 	background: $light_grey;
 }
 
-.button, .close_img, .product-image, .category, .cart_img, .delete-img, .minus, .plus{
+.button, .close_img, .product-image,  .product-title, .category, .cart_img, .delete-img, .minus, .plus{
 	cursor: pointer;
 }
 
@@ -84,9 +84,11 @@ body{
 .content{
 	display: flex;
     flex-wrap: wrap;
-    padding-bottom: 89px;
 }
 
+.content_main{
+	padding-bottom: 89px;
+}
 
 
 /*список категорій*/
@@ -119,6 +121,7 @@ body{
 .product_main .product-title{
 	margin-top: 10px;
 	min-height: 70px;
+	font-size: 15px;
 }
 
 
@@ -126,7 +129,6 @@ body{
 .product_main .block-price{
 	min-height: 50px;
 }
-
 
 
 .product_main:hover{

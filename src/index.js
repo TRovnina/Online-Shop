@@ -77,7 +77,7 @@ $(document).on('click', '.category', function(){
 //відкрити певний товар
 let _makeDescription = require('./modules/product-description');
 
-$(document).on('click', '.product-image', function(){
+$(document).on('click', '.product-image, .product-title', function(){
 	var $this = $(this);
 	var id = $this.closest('.product').data('product-id');
 	$('div.product-grid').empty();//очистити блок
