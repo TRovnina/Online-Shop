@@ -129,7 +129,7 @@ function createCart(){
 //кнопка оформлення замовлення та загальна сума
    $cart.append($(`<button class="button order_btn m-4">`).text("Оформити замовлення"));
    var $div = $(`<div class="col-sm-4 col-md-4 all_price">`);
-   $div.append($(`<span class="price_all">`).text("Разом до сплати: " + all_price + " грн"));
+   $div.append($(`<span class="price_all">`).text("До сплати: " + all_price + " грн"));
    $cart.append($div);
 }
 
